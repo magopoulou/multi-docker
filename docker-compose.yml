@@ -1,11 +1,11 @@
-version: "3"
+version: '3'
 services:
   client:
-    image: "magopoulou/multi-client"
+    image: 'magopoulou/multi-client'
     mem_limit: 128m
     hostname: client
   server:
-    image: "magopoulou/multi-server"
+    image: 'magopoulou/multi-server'
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,15 +17,15 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: "magopoulou/multi-worker"
+    image: 'magopoulou/multi-worker'
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "magopoulou/multi-nginx"
+    image: 'magopoulou/multi-nginx'
     mem_limit: 128m
     hostname: nginx
     ports:
-      - "80:80"
+      - '80:80'
